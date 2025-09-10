@@ -12,10 +12,14 @@ This is a cheat sheet for Linux commands and Linux workflows.
 ##### Analogy:
 - Port = a room number in a building.
 - Socket = the door to that room that’s actually open for someone to walk through and talk.
+- 
+#### 2. TCP6 & UDP6
+TCP6 and UDP6 are not new protocols. They are the same TCP and UDP protocols running over IPv6 instead of IPv4.
+*They only te
 
 ## Common Commands
 ### Networking
-1. List all listening network sockets on your machine and which process owns them.
+#### 1. List all listening network sockets on your machine and which process owns them.
 ```bash
 sudo netstat -tulpn
 ```
@@ -37,5 +41,5 @@ udp6       0      0 :::5353                 :::*                                
 udp6       0      0 :::47337                :::*                                210/avahi-daemon: r
 udp6       0      0 ::1:323                 :::*                                -
 ```
-Columns:
-1. Proto → Protocol of the socket
+##### Columns:
+1. Proto → Protocol of the socket. (Eg. tcp, udp, tcp6, udp6)
