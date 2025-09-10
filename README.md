@@ -40,6 +40,15 @@ A network interface is basically a “connection point” between your computer 
 - Each door (interface) can have its own address, so people know where to send data.
 💡 So when a socket binds to ```0.0.0.0```, it’s like saying: *“Listen on all doors/interfaces”*.
 
+#### 4. Common Network Ports
+1. ```21 (FTP)```: For file transfers. FTP (File Transfer Protocol).
+2. ```22 (SSH)```: For secure remote access. SSH (Secure Shell).
+3. ```25 (SMTP)```: For email. SMTP (Simple Mail Transfer Protocol).
+4. ```80 (HTTP)```: For web browsing. HTTP (Hyper Text Transfer Protocol).
+5. ```53 (DNS)```: For domain name resolution. DNS (Domain Name System).
+6. ```443 (HTTPS)```: For secure web browsing. HTTPS (Hyper Text Transfer Protocol Secure).
+7. ```3389 (RDP)```: For remote desktop access. RDP (Remote Desktop Protocol).
+
 ## Common Commands
 ### Networking
 #### 1. List all listening network sockets on your machine and which process owns them.
