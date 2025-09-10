@@ -37,7 +37,7 @@ A network interface is basically a “connection point” between your computer 
 ##### Analogy:
 - Think of your computer as a house.
 - Network interfaces are the doors/windows that let it connect to the outside world.
-- Each door (interface) can have its own address, so people know where to send data.
+- Each door (interface) can have its own address, so people know where to send data. <br>
 💡 So when a socket binds to `0.0.0.0`, it’s like saying: *“Listen on all doors/interfaces”*.
 
 #### 4. Common Network Ports
