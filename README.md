@@ -41,6 +41,7 @@ A network interface is basically a “connection point” between your computer 
 💡 So when a socket binds to ```0.0.0.0```, it’s like saying: *“Listen on all doors/interfaces”*.
 
 #### 4. Common Network Ports
+**Port (Formal Definition)**: A port is a virtual point where network connections start and end.
 1. ```21 (FTP)```: For file transfers. FTP (File Transfer Protocol).
 2. ```22 (SSH)```: For secure remote access. SSH (Secure Shell).
 3. ```25 (SMTP)```: For email. SMTP (Simple Mail Transfer Protocol).
