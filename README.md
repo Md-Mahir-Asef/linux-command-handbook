@@ -1,5 +1,17 @@
-# linux-command-handbook
+# Linux Handbook
 This is a cheat sheet for Linux commands and Linux workflows.
+
+## Common Concepts
+### Networking
+#### 1. Socket Vs Port:
+- Port → A number that identifies a specific service or application on a machine (e.g., 80 for HTTP, 5432 for PostgreSQL).
+- Socket → The actual communication endpoint, which combines:
+  + IP address (which machine)
+  + Port number (which service)
+  + Protocol (TCP/UDP)
+##### Analogy:
+- Port = a room number in a building.
+- Socket = the door to that room that’s actually open for someone to walk through and talk.
 
 ## Common Commands
 ### Networking
@@ -26,4 +38,4 @@ udp6       0      0 :::47337                :::*                                
 udp6       0      0 ::1:323                 :::*                                -
 ```
 Columns:
-1. Proto 
+1. Proto → Protocol of the socket
