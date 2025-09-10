@@ -38,17 +38,17 @@ A network interface is basically a “connection point” between your computer 
 - Think of your computer as a house.
 - Network interfaces are the doors/windows that let it connect to the outside world.
 - Each door (interface) can have its own address, so people know where to send data.
-💡 So when a socket binds to ```0.0.0.0```, it’s like saying: *“Listen on all doors/interfaces”*.
+💡 So when a socket binds to `0.0.0.0`, it’s like saying: *“Listen on all doors/interfaces”*.
 
 #### 4. Common Network Ports
 **Port (Formal Definition)**: A port is a virtual point where network connections start and end.
-1. ```21 (FTP)```: For file transfers. FTP (File Transfer Protocol).
-2. ```22 (SSH)```: For secure remote access. SSH (Secure Shell).
-3. ```25 (SMTP)```: For email. SMTP (Simple Mail Transfer Protocol).
-4. ```80 (HTTP)```: For web browsing. HTTP (Hyper Text Transfer Protocol).
-5. ```53 (DNS)```: For domain name resolution. DNS (Domain Name System).
-6. ```443 (HTTPS)```: For secure web browsing. HTTPS (Hyper Text Transfer Protocol Secure).
-7. ```3389 (RDP)```: For remote desktop access. RDP (Remote Desktop Protocol).
+1. `21 (FTP)`: For file transfers. FTP (File Transfer Protocol).
+2. `22 (SSH)`: For secure remote access. SSH (Secure Shell).
+3. `25 (SMTP)`: For email. SMTP (Simple Mail Transfer Protocol).
+4. `80 (HTTP)`: For web browsing. HTTP (Hyper Text Transfer Protocol).
+5. `53 (DNS)`: For domain name resolution. DNS (Domain Name System).
+6. `443 (HTTPS)`: For secure web browsing. HTTPS (Hyper Text Transfer Protocol Secure).
+7. `3389 (RDP)`: For remote desktop access. RDP (Remote Desktop Protocol).
 
 ## Common Commands
 ### Networking
@@ -74,23 +74,29 @@ udp6       0      0 :::5353                 :::*                                
 udp6       0      0 :::47337                :::*                                210/avahi-daemon: r
 udp6       0      0 ::1:323                 :::*                                -
 ```
+###### Flags: 
+1. `-t`: TCP.
+2. `-u`: UDP.
+3. `-l`: Listening sockets.
+4. `-p`: show PID/program.
+5. `-n`: numeric IPs/ports.
 ##### Columns:
 1. **Proto** → Protocol of the socket. (Eg. tcp, udp, tcp6, udp6)
-2. **Recv-Q** (Receive Queue) → Number of bytes received by the kernel but not yet read by the application. Usually ```0``` if the application is keeping up. High numbers can indicate the process isn’t reading data fast enough.
-3. **Send-Q** (Send Queue) → Number of bytes sent by the kernel but not yet acknowledged by the remote side. Usually ```0``` for LISTEN sockets. Large numbers could indicate network congestion or a stalled connection.
+2. **Recv-Q** (Receive Queue) → Number of bytes received by the kernel but not yet read by the application. Usually `0` if the application is keeping up. High numbers can indicate the process isn’t reading data fast enough.
+3. **Send-Q** (Send Queue) → Number of bytes sent by the kernel but not yet acknowledged by the remote side. Usually `0` for LISTEN sockets. Large numbers could indicate network congestion or a stalled connection.
 4. **Local Address** → The IP and port on your machine that the process is listening on.
 Examples:
-- ```127.0.0.1:323``` → localhost only, port 323.
-- ```0.0.0.0:5353``` → all IPv4 interfaces, port 5353.
-- ```:::15432``` → all IPv6 interfaces, port 15432.
+- `127.0.0.1:323` → localhost only, port 323.
+- `0.0.0.0:5353` → all IPv4 interfaces, port 5353.
+- `:::15432` → all IPv6 interfaces, port 15432.
 5. **Foreign Address** → The IP and port of the remote endpoint. For LISTEN sockets, it’s usually 0.0.0.0:* or :::*, because it’s waiting for any connection. For active connections (ESTABLISHED), it would show the client IP:port.
 6. **State** → Current state of the socket.
 Common ones:
-- ```LISTEN``` → Waiting for incoming connections.
-- ```ESTABLISHED``` → Active connection exists.
-- ```CLOSE_WAIT```, ```SYN_SENT```, etc. → Various TCP states.
+- `LISTEN` → Waiting for incoming connections.
+- `ESTABLISHED` → Active connection exists.
+- `CLOSE_WAIT`, `SYN_SENT`, etc. → Various TCP states.
 Only TCP has states; UDP usually shows blank because it’s connectionless.
 7. **PID/Program name** → The PID(Process ID) and program owning the socket. Format: PID/ProgramName.
 Example:
-- ```128/systemd-resolve``` → PID ```128``` is ```systemd-resolve```.
-- ```-``` → PID unknown, often because it’s kernel-level or restricted namespace.
+- `128/systemd-resolve` → PID `128` is `systemd-resolve`.
+- `-` → PID unknown, often because it’s kernel-level or restricted namespace.
