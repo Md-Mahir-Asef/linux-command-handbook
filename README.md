@@ -4,11 +4,16 @@ This is a cheat sheet for Linux commands and Linux workflows.
 ## Common Concepts
 ### Networking
 #### 1. Socket Vs Port:
+**Socket (Formal Definition)**: A socket is one endpoint of a two-way communication link between two programs running on the network.<br>
+**Port (Formal Definition)**: A port is a virtual point where network connections start and end.
+
+Simply,
 - Port → A number that identifies a specific service or application on a machine (e.g., 80 for HTTP, 5432 for PostgreSQL).
 - Socket → The actual communication endpoint, which combines:
   + IP address (which machine)
   + Port number (which service)
   + Protocol (TCP/UDP)
+
 ##### Analogy:
 - Port = a room number in a building.
 - Socket = the door to that room that’s actually open for someone to walk through and talk.
