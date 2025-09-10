@@ -12,10 +12,10 @@ This is a cheat sheet for Linux commands and Linux workflows.
 ##### Analogy:
 - Port = a room number in a building.
 - Socket = the door to that room that’s actually open for someone to walk through and talk.
-- 
+  
 #### 2. TCP6 & UDP6
-TCP6 and UDP6 are not new protocols. They are the same TCP and UDP protocols running over IPv6 instead of IPv4.
-*They only te
+TCP6 and UDP6 are not new protocols. They are the same TCP and UDP protocols running over IPv6 instead of IPv4.<br>
+**They only say that the socket is using IPv6.**
 
 ## Common Commands
 ### Networking
@@ -24,7 +24,7 @@ TCP6 and UDP6 are not new protocols. They are the same TCP and UDP protocols run
 sudo netstat -tulpn
 ```
 Example output:
-```bash
+```
 Active Internet connections (only servers)
 Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name
 tcp        0      0 127.0.0.54:53           0.0.0.0:*               LISTEN      128/systemd-resolve
@@ -42,4 +42,22 @@ udp6       0      0 :::47337                :::*                                
 udp6       0      0 ::1:323                 :::*                                -
 ```
 ##### Columns:
-1. Proto → Protocol of the socket. (Eg. tcp, udp, tcp6, udp6)
+1. **Proto** → Protocol of the socket. (Eg. tcp, udp, tcp6, udp6)
+2. **Recv-Q** (Receive Queue) → Number of bytes received by the kernel but not yet read by the application. Usually ```0``` if the application is keeping up. High numbers can indicate the process isn’t reading data fast enough.
+3. **Send-Q** (Send Queue) → Number of bytes sent by the kernel but not yet acknowledged by the remote side. Usually ```0``` for LISTEN sockets. Large numbers could indicate network congestion or a stalled connection.
+4. **Local Address** → The IP and port on your machine that the process is listening on.
+Examples:
+- ```127.0.0.1:323``` → localhost only, port 323.
+- ```0.0.0.0:5353``` → all IPv4 interfaces, port 5353.
+- ```:::15432``` → all IPv6 interfaces, port 15432.
+5. **Foreign Address** → The IP and port of the remote endpoint. For LISTEN sockets, it’s usually 0.0.0.0:* or :::*, because it’s waiting for any connection. For active connections (ESTABLISHED), it would show the client IP:port.
+6. **State** → Current state of the socket.
+Common ones:
+- ```LISTEN``` → Waiting for incoming connections.
+- ```ESTABLISHED``` → Active connection exists.
+- ```CLOSE_WAIT```, ```SYN_SENT```, etc. → Various TCP states.
+Only TCP has states; UDP usually shows blank because it’s connectionless.
+7. **PID/Program name** → The PID(Process ID) and program owning the socket. Format: PID/ProgramName.
+Example:
+- ```128/systemd-resolve``` → PID ```128``` is ```systemd-resolve```.
+- ```-``` → PID unknown, often because it’s kernel-level or restricted namespace.
