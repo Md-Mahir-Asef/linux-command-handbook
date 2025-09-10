@@ -75,11 +75,14 @@ udp6       0      0 :::47337                :::*                                
 udp6       0      0 ::1:323                 :::*                                -
 ```
 ###### Flags: 
-1. `-t`: TCP.
-2. `-u`: UDP.
+1. `-t`: Include TCP protocols.
+2. `-u`: Include UDP protocols.
 3. `-l`: Listening sockets.
 4. `-p`: show PID/program.
 5. `-n`: numeric IPs/ports.
+Others (Important):
+1. `-x`: Include Unix protocols.
+
 ##### Columns:
 1. **Proto** → Protocol of the socket. (Eg. tcp, udp, tcp6, udp6)
 2. **Recv-Q** (Receive Queue) → Number of bytes received by the kernel but not yet read by the application. Usually `0` if the application is keeping up. High numbers can indicate the process isn’t reading data fast enough.
