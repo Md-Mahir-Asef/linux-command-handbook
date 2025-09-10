@@ -22,6 +22,24 @@ Simply,
 TCP6 and UDP6 are not new protocols. They are the same TCP and UDP protocols running over IPv6 instead of IPv4.<br>
 **They only say that the socket is using IPv6.**
 
+#### 3. Network Interface
+**Network Interface (Formal Definition)**:  A network interface is the defined boundary, both physical and logical, through which a host system exchanges data with a network.
+
+A network interface is basically a “connection point” between your computer and a network.
+- It can be physical (like an Ethernet port or Wi-Fi card) or virtual (like loopback lo, Docker bridge, or VPN adapters).
+- Each interface has an IP address, which identifies it on that network.
+- Examples on Linux:
+  - lo → Loopback (127.0.0.1), for internal communication.
+  - eth0 → Physical Ethernet card.
+  - wlan0 → Wi-Fi adapter.
+  - docker0 → Docker’s virtual network.
+
+##### Analogy:
+- Think of your computer as a house.
+- Network interfaces are the doors/windows that let it connect to the outside world.
+- Each door (interface) can have its own address, so people know where to send data.
+💡 So when a socket binds to ```0.0.0.0```, it’s like saying: *“Listen on all doors/interfaces”*.
+
 ## Common Commands
 ### Networking
 #### 1. List all listening network sockets on your machine and which process owns them.
